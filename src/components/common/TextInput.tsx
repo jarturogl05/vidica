@@ -1,4 +1,4 @@
-import {classNames} from "../uitls/classes";
+import { classNames } from "../../uitls/classes";
 
 export type Type = 'text' | 'password' | 'number';
 

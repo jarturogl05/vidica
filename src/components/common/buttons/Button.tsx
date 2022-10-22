@@ -1,5 +1,5 @@
+import { classNames } from "../../../uitls/classes";
 import {ButtonVariant} from "./buttonTypes";
-import {classNames} from "../../uitls/classes";
 
 type ButtonType = 'button' | 'submit'
 
