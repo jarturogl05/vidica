@@ -27,9 +27,10 @@ const MAPS_BUSSY_STATE_DESCRIPTION: Record<MAP_COLORS, string> = {
 interface BankOfficeCardProps {
     enableGoToDetails?: boolean;
     isFavorite?: boolean;
+    onClick?: () => void;
 }
 
-export const BankOfficeCard = ({enableGoToDetails = true, isFavorite = false}: BankOfficeCardProps) => {
+export const BankOfficeCard = ({enableGoToDetails = true, isFavorite = false, onClick}: BankOfficeCardProps) => {
 
     const navigate = useNavigate();
 
@@ -39,7 +40,7 @@ export const BankOfficeCard = ({enableGoToDetails = true, isFavorite = false}: B
     }
 
     return (
-        <div className='w-full rounded-xl h-[125px] flex flex-col px-[12px] py-[10px] shadow-bank-card cursor-pointer hover:bg-base-200' onClick={gotToDetails}>
+        <div className='w-full rounded-xl h-[125px] flex flex-col px-[12px] py-[10px] shadow-bank-card cursor-pointer hover:bg-base-200' onClick={!!onClick ? onClick : gotToDetails}>
             <div className='relative flex gap-[2px]'>
                 <div className='flex flex-col gap-[1px]'>
                     <img src={MAPS_BUSSY_STATE_IMAGE[MAP_COLORS.GREEN]} className='h-[60px] w-[36px]'/>

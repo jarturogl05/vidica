@@ -7,14 +7,16 @@ interface IconButtonPropsI {
     size?: ButtonSize;
     text?: string;
     onClick?: () => void;
+    isSelected?: boolean;
 }
 
 
 const BUTTON_COMMON_STYLES = 'rounded-full flex items-center justify-center'
 
 const MAPS_BUTTON_VARIANT: Record<ButtonVariant,string> = {
-    [ButtonVariant.PRIMARY]: 'bg-transparent text-primary ',
-    [ButtonVariant.SECONDARY]: 'bg-secondary text-white'
+    [ButtonVariant.PRIMARY]: 'bg-primary text-white ',
+    [ButtonVariant.SECONDARY]: 'bg-secondary text-white',
+    [ButtonVariant.TRANSPARENT]: 'bg-transparent text-primary'
 }
 
 const MAPS_BUTTON_SIZES: Record<ButtonSize,string> = {
@@ -24,8 +26,9 @@ const MAPS_BUTTON_SIZES: Record<ButtonSize,string> = {
 }
 
 const MAPS_ICON_VARIANT: Record<ButtonVariant,string> = {
-    [ButtonVariant.PRIMARY]: 'text-primary',
-    [ButtonVariant.SECONDARY]: 'text-white'
+    [ButtonVariant.PRIMARY]: 'text-white',
+    [ButtonVariant.SECONDARY]: 'text-white',
+    [ButtonVariant.TRANSPARENT]: 'text-primary ',
 }
 
 const MAPS_ICON_SIZES: Record<ButtonSize, string> = {
@@ -41,13 +44,19 @@ const MAPS_LABEL_SIZES: Record<ButtonSize, string> = {
     [ButtonSize.LARGE]: 'text-[12px] mt-2 w-20'
 }
 
+const getOpositeVariant = (variant: ButtonVariant) => {
+    if(variant === ButtonVariant.PRIMARY){
+        return ButtonVariant.SECONDARY
+    }
+    return ButtonVariant.PRIMARY;
+}
 
-export const IconButton = ({icon: Icon, text, variant = ButtonVariant.PRIMARY, size = ButtonSize.SMALL, onClick}: IconButtonPropsI) => {
+export const IconButton = ({icon: Icon, text, variant = ButtonVariant.TRANSPARENT, size = ButtonSize.SMALL, onClick, isSelected= false}: IconButtonPropsI) => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
-            <button onClick={onClick} className={classNames(BUTTON_COMMON_STYLES, MAPS_BUTTON_SIZES[size], MAPS_BUTTON_VARIANT[variant])}>
-                {<Icon className={classNames(MAPS_ICON_SIZES[size], MAPS_ICON_VARIANT[variant])} />}
+            <button onClick={onClick} className={classNames(BUTTON_COMMON_STYLES, MAPS_BUTTON_SIZES[size], isSelected? MAPS_BUTTON_VARIANT[getOpositeVariant(variant)] : MAPS_BUTTON_VARIANT[variant])}>
+                {<Icon className={classNames(MAPS_ICON_SIZES[size], isSelected? MAPS_ICON_VARIANT[getOpositeVariant(variant)] : MAPS_ICON_VARIANT[variant])} />}
             </button>
             {
                 !!text &&

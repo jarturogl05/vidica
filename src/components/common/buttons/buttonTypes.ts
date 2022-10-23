@@ -1,7 +1,8 @@
 
 export enum ButtonVariant {
     PRIMARY,
-    SECONDARY
+    SECONDARY,
+    TRANSPARENT
 }
 
 export enum ButtonSize {

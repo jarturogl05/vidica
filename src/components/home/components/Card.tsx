@@ -8,8 +8,11 @@ import { ButtonSize } from "../../common/buttons/buttonTypes";
 import BBVALogo from "../../../assets/logoBBVA.png"
 import { classNames } from "../../../uitls/classes";
 
+interface CardProps {
+    showDisable?: boolean;
+}
 
-export const Card = () => {
+export const Card = ({showDisable = true}: CardProps) => {
     const [cardActive, setCardActive] = useState(true);
     const [showSensitiveData, setShowSensitiveData] = useState(false);
 
@@ -19,10 +22,15 @@ export const Card = () => {
         <div className={classNames('rounded-lg py-[22px] px-[26px] flex flex-col relative', cardActive ? 'bg-primary' : 'bg-base-300')}>
             <div className='flex justify-between items-top'>
                 <img src={CardChip} alt="Card chip" className='h-[37px] w-[70px]' />
-                <div>
-                    <Toggle onChange={(value) => {setCardActive(value)}} />
-                    <p className='text-white font-medium text-sm text-center'>Activar</p>
-                </div>
+                {
+                    showDisable &&
+                        (
+                            <div>
+                                <Toggle onChange={(value) => {setCardActive(value)}} checked={cardActive} />
+                                <p className='text-white font-medium text-sm text-center'>Activar</p>
+                            </div>
+                        )
+                }
             </div>
             <div className='mt-[30px] flex flex-col gap-1'>
                 <p className='font-bold text-2xl text-white'>**** **** **** 1234</p>

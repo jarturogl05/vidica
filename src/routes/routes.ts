@@ -8,6 +8,7 @@ import { FavoritesAtmScreen } from '../components/favoritesATM/FavoritesAtmScree
 import { HomeScreen } from '../components/home/HomeScreen';
 import { LoginScreen } from '../components/login/LoginScreen';
 import { NearlyAtmsScreen } from '../components/nearlyAtms/NearlyAtmsScreen';
+import { ScheduleTransactionsScreen } from '../components/scheduleTransactions/ScheduleTransactionsScreen';
 import { Roles } from '../models/roles';
 
 type JSXElement = () => JSX.Element;
@@ -80,5 +81,12 @@ export const routes: RouteI[] = [
         Component: FavoritesAtmScreen,
         allowedRoles: [Roles.BBVA_CLIENT, Roles.COMMON_USER]
     },
-
+    {
+        to: '/schedule-transactions',
+        path: 'schedule-transactions',
+        name: 'Schedule transactions',
+        loginRequired: true,
+        Component: ScheduleTransactionsScreen,
+        allowedRoles: [Roles.BBVA_CLIENT, Roles.COMMON_USER]
+    },
 ]
