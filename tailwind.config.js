@@ -9,7 +9,8 @@ module.exports = {
       primaryDark: '#093768',
       primary: '#072146',
       white: '#FFFFFF',
-      secondary: '#CA016C'
+      secondary: '#CA016C',
+      transparent: 'transparent'
     },
     fontSize: {
       sm: '0.8rem',
@@ -24,5 +25,22 @@ module.exports = {
       textInput: '18px     '
     }
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+   themes: [
+     {
+       mytheme: {
+         primaryLight: '#042246',
+         primaryDark: '#093768',
+         primary: '#072146',
+         white: '#FFFFFF',
+         secondary: '#CA016C',
+         'secondary-content': '#f4cce24d',
+         transparent: 'transparent',
+         base: 'white',
+         'info-content': '#CDD3DA'
+       }
+     }
+   ]
+  },
 }

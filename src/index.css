@@ -14,3 +14,29 @@
 * {
     font-family: 'Source Sans Pro', serif;
 }
+
+ div.visibility > div>  button > svg > path {
+     stroke: white;
+ }
+
+
+ /** Map with ATM Header shadow  */
+
+.map-atms__header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/** Map container shadow */
+
+.map-shadow {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.shadow-separator-map {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-bank-card {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
