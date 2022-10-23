@@ -16,7 +16,7 @@ export const Header = ({currentStep}: HeaderProps) => {
             </div>
             <div className='px-10 py-1 flex flex-col justify-center items-center'>
                 <p className='text-primary'>Paso {currentStep} de 4</p>
-                <progress className="progress w-full" value="25" max="100"></progress>
+                <progress className="progress w-full" value={((currentStep / 4) * 100).toString()} max="100"></progress>
             </div>
         </div>
     )
