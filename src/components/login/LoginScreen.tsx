@@ -39,7 +39,7 @@ export const LoginScreen = () => {
     }
 
     return (
-        <div className='w-screen h-screen overflow-hidden flex flex-col'>
+        <div className='w-screen h-screen overflow-scroll flex flex-col'>
             <Header />
             <div className='relative'>
                 <img src={LoginAsset} />
