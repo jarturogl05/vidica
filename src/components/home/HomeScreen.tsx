@@ -26,7 +26,7 @@ export const HomeScreen = () => {
                         icon={PaymentRefoundIcon}
                         size={ButtonSize.LARGE}
                         variant={ButtonVariant.SECONDARY}
-                        text="Ultimos movimientos" />
+                        text="Programar movimientos" />
                     <IconButton
                         icon={UserDetailsIcon}
                         size={ButtonSize.LARGE}

@@ -5,6 +5,7 @@
 import { LazyExoticComponent } from 'react';
 import { HomeScreen } from '../components/home/HomeScreen';
 import { LoginScreen } from '../components/login/LoginScreen';
+import { NearlyAtmsScreen } from '../components/nearlyAtms/NearlyAtmsScreen';
 import { Roles } from '../models/roles';
 
 type JSXElement = () => JSX.Element;
@@ -50,6 +51,14 @@ export const routes: RouteI[] = [
         name: 'Home',
         loginRequired: true,
         Component: HomeScreen,
+        allowedRoles: [Roles.BBVA_CLIENT]
+    },
+    {
+        to: '/nearly-atms',
+        path: 'nearly-atms',
+        name: 'Home',
+        loginRequired: true,
+        Component: NearlyAtmsScreen,
         allowedRoles: [Roles.BBVA_CLIENT]
     }
 ]

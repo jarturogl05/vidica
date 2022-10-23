@@ -38,6 +38,7 @@ module.exports = {
          'secondary-content': '#f4cce24d',
          transparent: 'transparent',
          base: 'white',
+         'info-content': '#CDD3DA'
        }
      }
    ]
