@@ -14,3 +14,7 @@
 * {
     font-family: 'Source Sans Pro', serif;
 }
+
+ div.visibility > div>  button > svg > path {
+     stroke: white;
+ }

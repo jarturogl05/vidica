@@ -33,7 +33,7 @@ export const LoginScreen = () => {
         if(authState){
             authState.setUserRole(Roles.COMMON_USER);
             authState.setUser({
-                name: 'Usuario invitadi',
+                name: 'Usuario invitado',
             })
         }
     }

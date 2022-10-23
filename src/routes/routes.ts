@@ -3,6 +3,7 @@
  */
 
 import { LazyExoticComponent } from 'react';
+import { HomeScreen } from '../components/home/HomeScreen';
 import { LoginScreen } from '../components/login/LoginScreen';
 import { Roles } from '../models/roles';
 
@@ -43,4 +44,12 @@ export const routes: RouteI[] = [
         loginRequired: false,
         Component: LoginScreen,
     },
+    {
+        to: '/home',
+        path: 'home',
+        name: 'Home',
+        loginRequired: true,
+        Component: HomeScreen,
+        allowedRoles: [Roles.BBVA_CLIENT]
+    }
 ]

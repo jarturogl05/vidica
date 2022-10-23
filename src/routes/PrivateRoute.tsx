@@ -18,16 +18,14 @@ interface PrivateRouteI {
 
 export const PrivateRoute = ({Component, isAuthenticated, allowedRoles, userRole}: PrivateRouteI) => {
 
-    const isValidRole = () => {
-        return allowedRoles.find(r => r === userRole) || allowedRoles.find(r => r === Roles.ALL);
-    }
+    const isValidRole = !!((userRole !== null && allowedRoles.includes(userRole)) || allowedRoles.includes(Roles.ALL));
 
     return (
         <>
             {
                 !isAuthenticated
                     ? (<Navigate to="/"/>)
-                    : isValidRole()
+                    : isValidRole
                         ? (<Component/>)
                         : (<Navigate to="/home"/>)
             }

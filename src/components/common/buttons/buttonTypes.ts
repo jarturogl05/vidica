@@ -4,3 +4,9 @@ export enum ButtonVariant {
     SECONDARY
 }
 
+export enum ButtonSize {
+    SMALL,
+    MEDIUM,
+    LARGE
+}
+
