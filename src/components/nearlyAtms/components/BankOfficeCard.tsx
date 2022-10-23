@@ -3,7 +3,7 @@ import VeryBussy from "../../../assets/veryBussyBankOfficeLight.png";
 import Free from "../../../assets/freeBankOfficeLight.png";
 import { MAP_COLORS } from "./MapATMs";
 import { StarRating } from "../../common/StarRating";
-import { MdOutlineAtm } from "react-icons/md";
+import { MdOutlineAtm, MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { AtmIcon } from "../../../assets/icons/AtmIcon";
 import { ClockIcon } from "../../../assets/icons/ClockIcon";
 import { PersonIcon } from "../../../assets/icons/PersonIcon";
@@ -26,9 +26,10 @@ const MAPS_BUSSY_STATE_DESCRIPTION: Record<MAP_COLORS, string> = {
 
 interface BankOfficeCardProps {
     enableGoToDetails?: boolean;
+    isFavorite?: boolean;
 }
 
-export const BankOfficeCard = ({enableGoToDetails = true}: BankOfficeCardProps) => {
+export const BankOfficeCard = ({enableGoToDetails = true, isFavorite = false}: BankOfficeCardProps) => {
 
     const navigate = useNavigate();
 
@@ -51,6 +52,11 @@ export const BankOfficeCard = ({enableGoToDetails = true}: BankOfficeCardProps) 
                         <StarRating fillStarts={4} />
                     </div>
                 </div>
+                {
+                    isFavorite
+                        ? (<MdFavorite className='absolute right-1 top-1 text-secondary text-xl' />)
+                        : (<MdFavoriteBorder className='absolute right-1 top-1 text-primary text-xl' />)
+                }
             </div>
             <div className='flex justify-between items-center mt-1'>
                 <div className='flex justify-center items-center gap-[4px] border-r border-r-info-content w-1/4'>

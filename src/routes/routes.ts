@@ -4,6 +4,7 @@
 
 import { LazyExoticComponent } from 'react';
 import { BankOfficeDetailsScreen } from '../components/bankOfficeDetails/BankOfficeDetailsScreen';
+import { FavoritesAtmScreen } from '../components/favoritesATM/FavoritesAtmScreen';
 import { HomeScreen } from '../components/home/HomeScreen';
 import { LoginScreen } from '../components/login/LoginScreen';
 import { NearlyAtmsScreen } from '../components/nearlyAtms/NearlyAtmsScreen';
@@ -63,11 +64,21 @@ export const routes: RouteI[] = [
         allowedRoles: [Roles.BBVA_CLIENT, Roles.COMMON_USER]
     },
     {
+
         to: '/atm-details',
         path: 'atm-details',
         name: 'ATM Details',
         loginRequired: true,
         Component: BankOfficeDetailsScreen,
         allowedRoles: [Roles.BBVA_CLIENT, Roles.COMMON_USER]
-    }
+    },
+    {
+        to: '/favorites-atms',
+        path: 'favorites-atms',
+        name: 'My favorites ATMs',
+        loginRequired: true,
+        Component: FavoritesAtmScreen,
+        allowedRoles: [Roles.BBVA_CLIENT, Roles.COMMON_USER]
+    },
+
 ]

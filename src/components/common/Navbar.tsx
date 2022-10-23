@@ -23,7 +23,7 @@ export const Navbar = ({}: NavbarProps) => {
     }
 
     const toMyFavoriteATMs = () => {
-        navigate('/favorite-atms');
+        navigate('/favorites-atms');
     }
 
     const toMyAccount = () => {
