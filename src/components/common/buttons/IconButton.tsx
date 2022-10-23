@@ -37,7 +37,7 @@ const MAPS_ICON_SIZES: Record<ButtonSize, string> = {
 
 const MAPS_LABEL_SIZES: Record<ButtonSize, string> = {
     [ButtonSize.SMALL]: 'text-[8px] mt-[2px] w-11 leading-none',
-    [ButtonSize.MEDIUM]: 'text-[12px] mt-1 w-20',
+    [ButtonSize.MEDIUM]: 'text-[12px] mt-1 w-15 leading-none',
     [ButtonSize.LARGE]: 'text-[12px] mt-2 w-20'
 }
 

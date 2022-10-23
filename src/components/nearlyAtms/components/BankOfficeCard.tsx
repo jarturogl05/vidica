@@ -8,6 +8,7 @@ import { AtmIcon } from "../../../assets/icons/AtmIcon";
 import { ClockIcon } from "../../../assets/icons/ClockIcon";
 import { PersonIcon } from "../../../assets/icons/PersonIcon";
 import { CarIcon } from "../../../assets/icons/CarIcon";
+import { useNavigate } from "react-router-dom";
 
 const MAPS_BUSSY_STATE_IMAGE: Record<MAP_COLORS, any> = {
     [MAP_COLORS.GREEN]: Free,
@@ -24,13 +25,20 @@ const MAPS_BUSSY_STATE_DESCRIPTION: Record<MAP_COLORS, string> = {
 }
 
 interface BankOfficeCardProps {
-
+    enableGoToDetails?: boolean;
 }
 
-export const BankOfficeCard = () => {
+export const BankOfficeCard = ({enableGoToDetails = true}: BankOfficeCardProps) => {
+
+    const navigate = useNavigate();
+
+    const gotToDetails = () => {
+        if(enableGoToDetails)
+            navigate('/atm-details');
+    }
 
     return (
-        <div className='w-full rounded-xl h-[125px] flex flex-col px-[12px] py-[10px] shadow-bank-card'>
+        <div className='w-full rounded-xl h-[125px] flex flex-col px-[12px] py-[10px] shadow-bank-card cursor-pointer hover:bg-base-200' onClick={gotToDetails}>
             <div className='relative flex gap-[2px]'>
                 <div className='flex flex-col gap-[1px]'>
                     <img src={MAPS_BUSSY_STATE_IMAGE[MAP_COLORS.GREEN]} className='h-[60px] w-[36px]'/>
@@ -60,14 +68,14 @@ export const BankOfficeCard = () => {
                     </div>
                 </div>
                 <div className='flex items-center justify-center gap-[2px] border-r border-r-info-content w-1/4'>
-                    <PersonIcon className='text-lge' />
+                    <PersonIcon className='text-lg text-primary' />
                     <div>
                         <p className='font-bold text-primary text-[15px]'>20 MIN</p>
                         <p className='text-primary uppercase text-[6px]'>Llegada caminando</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-center gap-[2px] w-1/4'>
-                    <CarIcon className='text-lg' />
+                    <CarIcon className='text-lg text-primary' />
                     <div>
                         <p className='font-bold text-primary'>10 MIN</p>
                         <p className='text-primary uppercase text-[8px]'>Llegada en auto</p>
